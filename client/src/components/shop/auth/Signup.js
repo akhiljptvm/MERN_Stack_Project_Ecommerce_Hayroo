@@ -7,6 +7,7 @@ const Signup = (props) => {
     email: "",
     password: "",
     cPassword: "",
+    userRole:true,
     error: false,
     loading: false,
     success: false,
@@ -33,6 +34,7 @@ const Signup = (props) => {
         email: data.email,
         password: data.password,
         cPassword: data.cPassword,
+        userRole:data.userRole
       });
       if (responseData.error) {
         setData({
@@ -49,6 +51,7 @@ const Signup = (props) => {
           email: "",
           password: "",
           cPassword: "",
+          userRole:true,
           loading: false,
           error: false,
         });
@@ -57,6 +60,12 @@ const Signup = (props) => {
       console.log(error);
     }
   };
+
+  const handleSubmit = (e) => {
+    setData({...data})
+    let checked = e.target.checked;
+    console.log("data" ,checked)
+  }
 
   return (
     <Fragment>
@@ -157,11 +166,25 @@ const Signup = (props) => {
             <input
               type="checkbox"
               id="rememberMe"
-              className="px-4 py-2 focus:outline-none border mr-1"
+              className="px-4 py-2 focus:outline-none border mr-1 pl-2"
             />
+          
             <label htmlFor="rememberMe">
-              Remember me<span className="text-sm text-gray-600">*</span>
+              Remember me<span className="text-sm text-gray-600"></span>
             </label>
+
+            {/* admin check */}
+            <input
+              type="checkbox"
+              id="CheckAdmin"
+              onClick={(e) => handleSubmit()}
+              className="px-4 py-2 focus:outline-none border mr-1"
+              style={{ marginLeft: "15px" }}
+            />
+                   <label htmlFor="rememberMe">
+              Admin<span className="text-sm text-gray-600"></span>
+            </label>
+
           </div>
           <a className="block text-gray-600" href="/">
             Lost your password?

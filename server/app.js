@@ -42,7 +42,7 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .then(() =>
+  .then((e) =>
     console.log(
       "==============Mongodb Database Connected Successfully=============="
     )
