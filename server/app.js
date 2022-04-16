@@ -37,7 +37,8 @@ const { loginCheck } = require("./middleware/auth");
 
 // Database Connection
 mongoose
-  .connect(process.env.DATABASE, {
+  .connect(process.env.DB, {
+    
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
